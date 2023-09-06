@@ -1,0 +1,87 @@
+Algoritmo StockAlmacen
+	// para stock
+	Dimensionar stockfilac(10)
+	Dimensionar StockProducto(10)
+	Dimensionar stock(10)
+	Definir productoelegido, Stockelegido, Stockb Como Cadena
+	Definir stockfila, opcionMenu Como Entero
+	// definir Stock
+	Dimensionar productos(10)
+	Definir cantidadProductos Como Entero
+	Repetir
+		Escribir 'Que desea hacer?'
+		Escribir '1: reservar stock'
+		Escribir '2: definir el stock'
+		Escribir '3: salir'
+		Leer menuPrincipal
+		stockfila <- 1
+		Repetir
+			Escribir 'ingrese el producto'
+			Para i<-1 Hasta 1 Hacer
+				Escribir i, '. ', StockProducto[i]
+			FinPara
+			Leer productoelegido
+			Escribir 'Seleccione si hay o no productos'
+			Para i<-1 Hasta 1 Hacer
+				Escribir i, '. ', stock[i]
+			FinPara
+			Leer Stockelegido
+			Stockb <- Concatenar(productoelegido,Stockelegido)
+			Si stockfila=1 Entonces
+				stockfilac[stockfila] <- StockFilaelegido
+				Escribir 'El producto elegido es:'
+			SiNo
+				Existe <- Falso
+				Para i<-1 Hasta stockfila Hacer
+					Si stockfilac[i]=StockFilaelegido Entonces
+						Existe <- verdadero
+					FinSi
+				FinPara
+			FinSi
+			Si Existe Entonces
+				Escribir 'El producto ya esta completo'
+			SiNo
+				stockfilac[stockfila] <- Stockelegido
+				Escribir 'Stock completo, garacias!!!'
+			FinSi
+			stockfila <- stockfila+1
+			Escribir '¿Desea ingresar otro producto ? (1: Sí / 0: No)'
+			Leer opcionMenu
+		Hasta Que opcionMenu=0
+		// reserva de productos
+		Si menuPrincipal=1 Entonces
+			StockProducto[1] <- 'si hay'
+			StockProducto[2] <- 'no hay'
+			StockProducto[3] <- 'si hay'
+			StockProducto[4] <- 'no hay'
+			StockProducto[5] <- 'si hay'
+			StockProducto[6] <- 'no hay'
+			StockProducto[7] <- 'si hay'
+			StockProducto[8] <- 'no hay'
+			StockProducto[9] <- 'si hay'
+			StockProducto[10] <- 'no hay'
+			stock[7] <- 'seleccione un producto, y compuebe si hay'
+			stock[7] <- 'Seleccione la cantidad, y deje de colocar'
+		FinSi
+		Escribir 'Listas de productos ingresados'
+		Para i<-1 Hasta stockfila-1 Hacer
+			xStockProducto <- subcadena(stockfilac[i],1,1)
+			xstock <- subcadena(stockfilac[i],1,1)
+			Escribir StockProducto[xStockProducto], '', stock[xstock]
+		FinPara
+		Si menuPrincipal=2 Entonces
+			cantidadProductos <- 1
+			Repetir
+				Escribir 'Ingrese el nombre del producto:'
+				Leer productos[cantidadProductos]
+				cantidadProductos <- cantidadProductos+1
+				Escribir '¿Desea ingresar otro producto? (1: Sí / 0: No)'
+				Leer opcionMenu
+			Hasta Que opcionMenu=0
+			Escribir 'Lista de productos ingresados:'
+			Para i<-1 Hasta cantidadProductos Hacer
+				Escribir productos[i]
+			FinPara
+		FinSi
+	Hasta Que menuPrincipal=3
+FinAlgoritmo
